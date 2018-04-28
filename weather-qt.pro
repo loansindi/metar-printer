@@ -32,3 +32,5 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui
+
+unix|win32: LIBS += -lcurl

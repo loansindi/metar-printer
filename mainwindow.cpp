@@ -23,12 +23,24 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     QString code = ui->lineEdit->text();
-    QString get = "metar set";
-    QStringList arguments;
+    ui->lineEdit->setText("");
+    printReport(code);
+}
 
-    arguments += code;
+void MainWindow::on_lineEdit_returnPressed()
+{
+    QString code = ui->lineEdit->text();
+    ui->lineEdit->setText("");
+    printReport(code);
+}
+
+
+void MainWindow::printReport(QString city)
+{
+
+    QStringList arguments;
     QProcess *metarset = new QProcess();
-    metarset->start("/usr/bin/metar", QStringList() << "set" << code);
+    metarset->start("/usr/bin/metar", QStringList() << "set" << city);
     metarset->waitForFinished();
     metarset->close();
     QProcess *metarget = new QProcess();
@@ -44,7 +56,33 @@ void MainWindow::on_pushButton_clicked()
     process->closeWriteChannel();
 }
 
-void MainWindow::on_lineEdit_returnPressed()
+
+void MainWindow::on_pushButton_KORD_clicked()
 {
-    on_pushButton_clicked();
+    printReport("KORD");
+}
+
+void MainWindow::on_pushButton_KMDW_clicked()
+{
+    printReport("KMDW");
+}
+
+void MainWindow::on_pushButton_KJFK_clicked()
+{
+    printReport("KJFK");
+}
+
+void MainWindow::on_pushButton_KGUS_clicked()
+{
+    printReport("KGUS");
+}
+
+void MainWindow::on_pushButton_KMSP_clicked()
+{
+    printReport("KMSP");
+}
+
+void MainWindow::on_pushButton_KCMX_clicked()
+{
+    printReport("KCMX");
 }

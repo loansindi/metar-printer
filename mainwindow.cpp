@@ -22,24 +22,29 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-
-    //QString city = ui->plainTextEdit->toPlainText();
+    QString code = ui->lineEdit->text();
+    QString get = "metar set";
     QStringList arguments;
-    arguments << ui->plainTextEdit->toPlainText();
 
+    arguments += code;
     QProcess *metarset = new QProcess();
-    metarset->start("metar set", arguments);
+    metarset->start("/usr/bin/metar", QStringList() << "set" << code);
     metarset->waitForFinished();
     metarset->close();
     QProcess *metarget = new QProcess();
     metarget->start("metar get");
     metarget->waitForFinished();
     QString response = metarget->readAllStandardOutput();
-    std::cout << response.toStdString();
+    //std::cout << response.toStdString();
     metarget->close();
     //qInfo(response.toStdString().c_str());
     QProcess *process = new QProcess();
-    process->start("/usr/bin/lp -");
+    process->start("/usr/bin/lp -o cpi=20 -");
     process->write(response.toStdString().c_str());
     process->closeWriteChannel();
+}
+
+void MainWindow::on_lineEdit_returnPressed()
+{
+    on_pushButton_clicked();
 }

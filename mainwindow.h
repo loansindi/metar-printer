@@ -18,6 +18,12 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_textEdit_copyAvailable(bool b);
+
+    void on_airport_copyAvailable(bool b);
+
+    void on_lineEdit_returnPressed();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -39,7 +39,21 @@
        <item>
         <widget class="QPushButton" name="pushButton">
          <property name="text">
-          <string>PushButton</string>
+          <string>Print Report</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Font Size</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="fontSize">
+         <property name="text">
+          <string>10</string>
          </property>
         </widget>
        </item>
@@ -57,10 +71,10 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="3">
-        <widget class="QPushButton" name="pushButton_KJFK">
+       <item row="1" column="2">
+        <widget class="QPushButton" name="pushButton_KMSP">
          <property name="text">
-          <string>KJFK</string>
+          <string>KMSP</string>
          </property>
         </widget>
        </item>
@@ -71,17 +85,17 @@
          </property>
         </widget>
        </item>
+       <item row="0" column="3">
+        <widget class="QPushButton" name="pushButton_KJFK">
+         <property name="text">
+          <string>KJFK</string>
+         </property>
+        </widget>
+       </item>
        <item row="1" column="1">
         <widget class="QPushButton" name="pushButton_KGUS">
          <property name="text">
           <string>KGUS</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2">
-        <widget class="QPushButton" name="pushButton_KMSP">
-         <property name="text">
-          <string>KMSP</string>
          </property>
         </widget>
        </item>

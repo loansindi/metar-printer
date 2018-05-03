@@ -34,3 +34,5 @@ FORMS += \
         mainwindow.ui
 
 unix|win32: LIBS += -lcurl
+QT += network
+QT += printsupport

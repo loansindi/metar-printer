@@ -10,6 +10,10 @@
 #include <string>
 #include <sstream>
 #include <ostream>
+#include <QtPrintSupport/QPrinter>
+#include <qpainter.h>
+#include <QFont>
+#include <QtPrintSupport/qprinter.h>
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -120,10 +124,28 @@ void MainWindow::printReport(QString city)
      curl_easy_cleanup(curl_handle);
 
      qDebug() << chunk.memory;
+     QString weather(chunk.memory);
+
+     QPrinter printer;
+     //printer.setOutputFileName("weather");
+     QPainter painter;
+     painter.begin(&printer);
+
+     QFont font = painter.font();
+     font.setPixelSize(10);
+     painter.setFont(font);
+     const QRect rectangle = QRect(0, 0, 300, 300);
+     QRect boundingRect;
+     painter.drawText(rectangle, QT::TextWordWrap, weather, &boundingRect);
+     painter.end();
+
+
+     /*
      QProcess *process = new QProcess();
      process->start("/usr/bin/lp -o cpi=20 -");
      process->write(chunk.memory);
      process->closeWriteChannel();
+     */
 
      free(chunk.memory);
 

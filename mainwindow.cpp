@@ -69,8 +69,11 @@ static size_t WriteMemoryCallback(void *contents, size_t size, size_t nmemb, voi
 
 void MainWindow::printReport(QString city)
 {
-
-    CURL *curl_handle = nullptr;
+     if(city.length() == 0)
+     {
+         return;
+     }
+     CURL *curl_handle = nullptr;
      CURLcode res;
 
      struct MemoryStruct chunk;

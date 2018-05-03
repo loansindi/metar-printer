@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "QProcess"
 #include "curl/curl.h"
 #include "curl/easy.h"
 #include <curl/curlver.h>
@@ -132,7 +131,7 @@ void MainWindow::printReport(QString city)
      painter.begin(&printer);
 
      QFont font = painter.font();
-     font.setPixelSize(10);
+     font.setPixelSize(ui->fontSize->text().toInt());
      painter.setFont(font);
      const QRect rectangle = QRect(0, 0, 250, 600);
      QRect boundingRect;
@@ -140,31 +139,10 @@ void MainWindow::printReport(QString city)
      painter.end();
 
 
-     /*
-     QProcess *process = new QProcess();
-     process->start("/usr/bin/lp -o cpi=20 -");
-     process->write(chunk.memory);
-     process->closeWriteChannel();
-     */
-
      free(chunk.memory);
 
      /* we're done with libcurl, so clean it up */
      curl_global_cleanup();
-
-    /*
-    QStringList arguments;
-    QProcess *metarset = new QProcess();
-    metarset->start("/usr/bin/metar", QStringList() << "set" << city);
-    metarset->waitForFinished();
-    metarset->close();
-    QProcess *metarget = new QProcess();
-    metarget->start("metar get");
-    metarget->waitForFinished();
-    QString response = metarget->readAllStandardOutput();
-    //std::cout << response.toStdString();
-    metarget->close();*/
-    //qInfo(response.toStdString().c_str());
 
 }
 

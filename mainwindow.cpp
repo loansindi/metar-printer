@@ -12,8 +12,8 @@
 #include <ostream>
 #include <QtPrintSupport/QPrinter>
 #include <qpainter.h>
-#include <QFont>
 #include <QtPrintSupport/qprinter.h>
+#include <QtPrintSupport>
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -134,9 +134,9 @@ void MainWindow::printReport(QString city)
      QFont font = painter.font();
      font.setPixelSize(10);
      painter.setFont(font);
-     const QRect rectangle = QRect(0, 0, 300, 300);
+     const QRect rectangle = QRect(0, 0, 250, 600);
      QRect boundingRect;
-     painter.drawText(rectangle, QT::TextWordWrap, weather, &boundingRect);
+     painter.drawText(rectangle, Qt::TextWordWrap, weather, &boundingRect);
      painter.end();
 
 

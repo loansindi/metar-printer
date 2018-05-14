@@ -31,9 +31,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    QString code = ui->lineEdit->text();
-    ui->lineEdit->setText("");
-    printReport(code);
+    QString code = ui->lineEdit->text().toUpper();
+    if(code.length() == 4){
+        ui->lineEdit->setText("");
+       printReport(code);
+       qDebug() << "it's four characters at least";
+    }
+
 }
 
 void MainWindow::on_lineEdit_returnPressed()
@@ -124,6 +128,7 @@ void MainWindow::printReport(QString city)
 
      /* cleanup curl stuff */
      curl_easy_cleanup(curl_handle);
+   //  curl_handle.
 
      qDebug() << chunk.memory;
      QString weather(chunk.memory);
@@ -146,6 +151,7 @@ void MainWindow::printReport(QString city)
 
      /* we're done with libcurl, so clean it up */
      curl_global_cleanup();
+
 
 }
 

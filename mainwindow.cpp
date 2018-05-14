@@ -35,16 +35,16 @@ void MainWindow::on_pushButton_clicked()
     if(code.length() == 4){
         ui->lineEdit->setText("");
        printReport(code);
-       qDebug() << "it's four characters at least";
+       qDebug() << code;
+
     }
 
 }
 
 void MainWindow::on_lineEdit_returnPressed()
 {
-    QString code = ui->lineEdit->text();
-    ui->lineEdit->setText("");
-    printReport(code);
+
+    on_pushButton_clicked();
 }
 
 struct MemoryStruct {

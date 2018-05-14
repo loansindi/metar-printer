@@ -1,4 +1,4 @@
-.autosave
+*.autosave
 moc_*
 weather-qt
 ui_*

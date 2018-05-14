@@ -33,12 +33,17 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
+    statusBar()->showMessage("");
     QString code = ui->lineEdit->text().toUpper();
     if(code.length() == 4){
         ui->lineEdit->setText("");
        printReport(code);
        qDebug() << code;
 
+    }
+    else{
+        statusBar()->showMessage("Please enter a four letter ICAO code");
+        ui->lineEdit->setText("");
     }
 
 }
@@ -136,6 +141,8 @@ void MainWindow::printReport(QString city)
      curl_easy_cleanup(curl_handle);
    //  curl_handle.
      if(response_code == 200) {
+         statusBar()->showMessage("Printing report for " + city);
+
 
          qDebug() << chunk.memory;
          QString weather(chunk.memory);
@@ -152,6 +159,9 @@ void MainWindow::printReport(QString city)
          QRect boundingRect;
          painter.drawText(rectangle, Qt::TextWordWrap, weather, &boundingRect);
          painter.end();
+     }
+     else {
+         statusBar()->showMessage("Invalid Airport code or other error");
      }
 
 

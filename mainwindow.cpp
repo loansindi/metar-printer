@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "buttonconfig.h"
 #include "ui_mainwindow.h"
 #include "curl/curl.h"
 #include "curl/easy.h"
@@ -23,13 +24,14 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
 
 void MainWindow::on_pushButton_clicked()
 {
@@ -174,32 +176,49 @@ void MainWindow::printReport(QString city)
 }
 
 
-void MainWindow::on_pushButton_KORD_clicked()
+void MainWindow::on_pushButton_1_clicked()
 {
-    printReport("KORD");
+    printReport(ui->pushButton_1->text());
 }
 
-void MainWindow::on_pushButton_KMDW_clicked()
+void MainWindow::on_pushButton_2_clicked()
 {
-    printReport("KMDW");
+    printReport(ui->pushButton_2->text());
 }
 
-void MainWindow::on_pushButton_KJFK_clicked()
+void MainWindow::on_pushButton_3_clicked()
 {
-    printReport("KJFK");
+    printReport(ui->pushButton_3->text());
 }
 
-void MainWindow::on_pushButton_KGUS_clicked()
+void MainWindow::on_pushButton_4_clicked()
 {
-    printReport("KGUS");
+    printReport(ui->pushButton_4->text());
 }
 
-void MainWindow::on_pushButton_KMSP_clicked()
+void MainWindow::on_pushButton_5_clicked()
 {
-    printReport("KMSP");
+    printReport(ui->pushButton_5->text());
 }
 
-void MainWindow::on_pushButton_KCMX_clicked()
+void MainWindow::on_pushButton_6_clicked()
 {
-    printReport("KCMX");
+    printReport(ui->pushButton_6->text());
+}
+
+void MainWindow::on_actionSet_Buttons_triggered()
+{
+    buttonConfig *buttons = new buttonConfig;
+    connect(buttons, SIGNAL(configAccepted(QString,QString,QString,QString,QString,QString)), this, SLOT(setButtons(QString,QString,QString,QString,QString,QString)));
+    buttons->exec();
+
+}
+
+void MainWindow::setButtons(QString one, QString two, QString three, QString four, QString five, QString six) {
+    ui->pushButton_1->setText(one);
+    ui->pushButton_2->setText(two);
+    ui->pushButton_3->setText(three);
+    ui->pushButton_4->setText(four);
+    ui->pushButton_5->setText(five);
+    ui->pushButton_6->setText(six);
 }

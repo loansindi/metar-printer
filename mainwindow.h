@@ -16,6 +16,11 @@ public:
     ~MainWindow();
 
 
+public slots:
+    void setButtons(QString one, QString two, QString three, QString four, QString five, QString six);
+
+
+
 
 private slots:
     void on_pushButton_clicked();
@@ -24,20 +29,23 @@ private slots:
 
     void printReport(QString city);
 
-    void on_pushButton_KORD_clicked();
+    void on_pushButton_1_clicked();
 
-    void on_pushButton_KMDW_clicked();
+    void on_pushButton_2_clicked();
 
-    void on_pushButton_KJFK_clicked();
+    void on_pushButton_3_clicked();
 
-    void on_pushButton_KGUS_clicked();
+    void on_pushButton_4_clicked();
 
-    void on_pushButton_KMSP_clicked();
+    void on_pushButton_5_clicked();
 
-    void on_pushButton_KCMX_clicked();
+    void on_pushButton_6_clicked();
+
+    void on_actionSet_Buttons_triggered();
 
 private:
     Ui::MainWindow *ui;
 };
+
 
 #endif // MAINWINDOW_H

@@ -15,11 +15,17 @@ public:
     explicit buttonConfig(QWidget *parent = 0);
     ~buttonConfig();
     //QString optionOne();
+
+public slots:
+    void receiveButtons(QString, QString, QString, QString, QString, QString);
+
+
 signals:
     QString configAccepted(QString, QString, QString, QString, QString, QString);
 
 private slots:
     void on_buttonBox_accepted();
+
 
 private:
     Ui::buttonConfig *ui;

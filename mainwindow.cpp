@@ -210,15 +210,16 @@ void MainWindow::on_actionSet_Buttons_triggered()
 {
     buttonConfig *buttons = new buttonConfig;
     connect(buttons, SIGNAL(configAccepted(QString,QString,QString,QString,QString,QString)), this, SLOT(setButtons(QString,QString,QString,QString,QString,QString)));
+    connect(this, SIGNAL(sendButtons(QString, QString, QString, QString, QString, QString)), buttons, SLOT(receiveButtons(QString,QString,QString,QString,QString,QString)));
+    emit(sendButtons(ui->pushButton_1->text(), ui->pushButton_2->text(), ui->pushButton_3->text(), ui->pushButton_4->text(), ui->pushButton_5->text(), ui->pushButton_6->text()));
     buttons->exec();
-
 }
 
 void MainWindow::setButtons(QString one, QString two, QString three, QString four, QString five, QString six) {
-    ui->pushButton_1->setText(one);
-    ui->pushButton_2->setText(two);
-    ui->pushButton_3->setText(three);
-    ui->pushButton_4->setText(four);
-    ui->pushButton_5->setText(five);
-    ui->pushButton_6->setText(six);
+    ui->pushButton_1->setText(one.toUpper());
+    ui->pushButton_2->setText(two.toUpper());
+    ui->pushButton_3->setText(three.toUpper());
+    ui->pushButton_4->setText(four.toUpper());
+    ui->pushButton_5->setText(five.toUpper());
+    ui->pushButton_6->setText(six.toUpper());
 }

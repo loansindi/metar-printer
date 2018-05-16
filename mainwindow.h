@@ -14,15 +14,16 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    //QString sendButtons(QString one, QString two, QString three, QString four, QString five, QString six);
 
 
-public slots:
-    void setButtons(QString one, QString two, QString three, QString four, QString five, QString six);
-
-
+signals:
+    QString sendButtons(QString, QString, QString, QString, QString, QString);
 
 
 private slots:
+    void setButtons(QString one, QString two, QString three, QString four, QString five, QString six);
+
     void on_pushButton_clicked();
 
     void on_lineEdit_returnPressed();

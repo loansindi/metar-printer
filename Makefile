@@ -945,15 +945,18 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-main.o: main.cpp mainwindow.h
+main.o: main.cpp mainwindow.h \
+		buttonconfig.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 mainwindow.o: mainwindow.cpp mainwindow.h \
+		buttonconfig.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 buttonconfig.o: buttonconfig.cpp buttonconfig.h \
-		ui_buttonconfig.h
+		ui_buttonconfig.h \
+		mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o buttonconfig.o buttonconfig.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

@@ -4,3 +4,4 @@ weather-qt
 ui_*
 *.user
 Makefile
+*.o

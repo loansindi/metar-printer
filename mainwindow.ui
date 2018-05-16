@@ -51,9 +51,18 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="fontSize">
-         <property name="text">
-          <string>10</string>
+        <widget class="QDoubleSpinBox" name="fontSize">
+         <property name="decimals">
+          <number>0</number>
+         </property>
+         <property name="minimum">
+          <double>6.000000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>20.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>10.000000000000000</double>
          </property>
         </widget>
        </item>

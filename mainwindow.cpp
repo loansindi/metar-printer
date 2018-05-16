@@ -14,6 +14,8 @@
 #include <QtPrintSupport/qprinter.h>
 #include <QtPrintSupport>
 using namespace std;
+long response_code;
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -31,16 +33,25 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    QString code = ui->lineEdit->text();
-    ui->lineEdit->setText("");
-    printReport(code);
+    statusBar()->showMessage("");
+    QString code = ui->lineEdit->text().toUpper();
+    if(code.length() == 4){
+        ui->lineEdit->setText("");
+       printReport(code);
+       qDebug() << code;
+
+    }
+    else{
+        statusBar()->showMessage("Please enter a four letter ICAO code");
+        ui->lineEdit->setText("");
+    }
+
 }
 
 void MainWindow::on_lineEdit_returnPressed()
 {
-    QString code = ui->lineEdit->text();
-    ui->lineEdit->setText("");
-    printReport(code);
+
+    on_pushButton_clicked();
 }
 
 struct MemoryStruct {
@@ -69,8 +80,11 @@ static size_t WriteMemoryCallback(void *contents, size_t size, size_t nmemb, voi
 
 void MainWindow::printReport(QString city)
 {
-
-    CURL *curl_handle = nullptr;
+     if(city.length() == 0)
+     {
+         return;
+     }
+     CURL *curl_handle = nullptr;
      CURLcode res;
 
      struct MemoryStruct chunk;
@@ -108,6 +122,8 @@ void MainWindow::printReport(QString city)
        fprintf(stderr, "curl_easy_perform() failed: %s\n",
                curl_easy_strerror(res));
      }
+
+
      else {
        /*
         * Now, our chunk.memory points to a memory block that is chunk.size
@@ -115,34 +131,45 @@ void MainWindow::printReport(QString city)
         *
         * Do something nice with it!
         */
+         curl_easy_getinfo(curl_handle, CURLINFO_RESPONSE_CODE, &response_code);
+         qDebug() << response_code;
 
        printf("%lu bytes retrieved\n", (long)chunk.size);
      }
 
      /* cleanup curl stuff */
      curl_easy_cleanup(curl_handle);
+   //  curl_handle.
+     if(response_code == 200) {
+         statusBar()->showMessage("Printing report for " + city);
 
-     qDebug() << chunk.memory;
-     QString weather(chunk.memory);
 
-     QPrinter printer;
-     //printer.setOutputFileName("weather");
-     QPainter painter;
-     painter.begin(&printer);
+         qDebug() << chunk.memory;
+         QString weather(chunk.memory);
 
-     QFont font = painter.font();
-     font.setPixelSize(ui->fontSize->text().toInt());
-     painter.setFont(font);
-     const QRect rectangle = QRect(0, 0, 250, 600);
-     QRect boundingRect;
-     painter.drawText(rectangle, Qt::TextWordWrap, weather, &boundingRect);
-     painter.end();
+         QPrinter printer;
+         //printer.setOutputFileName("weather");
+         QPainter painter;
+         painter.begin(&printer);
+
+         QFont font = painter.font();
+         font.setPixelSize(ui->fontSize->text().toInt());
+         painter.setFont(font);
+         const QRect rectangle = QRect(0, 0, 250, 600);
+         QRect boundingRect;
+         painter.drawText(rectangle, Qt::TextWordWrap, weather, &boundingRect);
+         painter.end();
+     }
+     else {
+         statusBar()->showMessage("Invalid Airport code or other error");
+     }
 
 
      free(chunk.memory);
 
      /* we're done with libcurl, so clean it up */
      curl_global_cleanup();
+
 
 }
 

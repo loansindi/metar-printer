@@ -20,7 +20,7 @@ using namespace std;
 long response_code;
 
 
-static void button();
+void button();
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

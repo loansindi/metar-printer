@@ -25,10 +25,9 @@ long response_code;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
-  wiringPiISR(9, INT_EDGE_FALLING, &MainWindow::button);
-
 {
     ui->setupUi(this);
+    wiringPiISR(9, INT_EDGE_FALLING, &MainWindow::button);
 
 
 

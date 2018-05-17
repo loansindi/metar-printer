@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    wiringPiISR(9, INT_EDGE_FALLING, button);
+    wiringPiISR(9, INT_EDGE_FALLING, &button);
 
 
 
@@ -43,7 +43,7 @@ MainWindow::~MainWindow()
 
 static void button()
 {
-    printReport("KORD");
+    MainWindow.printReport("KORD");
 }
 
 

@@ -27,7 +27,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    wiringPiISR(9, INT_EDGE_FALLING, &button);
 
 
 
@@ -40,6 +39,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+wiringPiISR(9, INT_EDGE_FALLING, &button);
 
 static void button()
 {

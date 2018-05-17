@@ -40,6 +40,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
 void MainWindow::button()
 {
     printReport("KORD");

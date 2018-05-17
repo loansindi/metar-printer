@@ -41,7 +41,7 @@ MainWindow::~MainWindow()
 }
 
 
-static void MainWindow::button()
+static void button()
 {
     printReport("KORD");
 }

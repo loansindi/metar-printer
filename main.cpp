@@ -21,3 +21,8 @@ int main(int argc, char *argv[])
     return a.exec();
 
 }
+
+void button()
+{
+    MainWindow::printReport("KORD");
+}

@@ -25,13 +25,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    buttonconfig.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    buttonconfig.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    buttonconfig.ui
 
 unix|win32: LIBS += -lcurl
 QT += network

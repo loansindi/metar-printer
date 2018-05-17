@@ -208,7 +208,7 @@ void MainWindow::on_pushButton_6_clicked()
 
 void MainWindow::on_actionSet_Buttons_triggered()
 {
-    buttonConfig *buttons = new buttonConfig;
+    buttonConfig *buttons = new buttonConfig(this);
     connect(buttons, SIGNAL(configAccepted(QString,QString,QString,QString,QString,QString)), this, SLOT(setButtons(QString,QString,QString,QString,QString,QString)));
     connect(this, SIGNAL(sendButtons(QString, QString, QString, QString, QString, QString)), buttons, SLOT(receiveButtons(QString,QString,QString,QString,QString,QString)));
     emit(sendButtons(ui->pushButton_1->text(), ui->pushButton_2->text(), ui->pushButton_3->text(), ui->pushButton_4->text(), ui->pushButton_5->text(), ui->pushButton_6->text()));

@@ -15,6 +15,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     //QString sendButtons(QString one, QString two, QString three, QString four, QString five, QString six);
+    static void button();
+
 
 
 signals:
@@ -22,7 +24,6 @@ signals:
 
 
 private slots:
-    static void button();
 
     void setButtons(QString one, QString two, QString three, QString four, QString five, QString six);
 

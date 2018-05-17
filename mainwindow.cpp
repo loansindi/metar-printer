@@ -19,7 +19,7 @@
 using namespace std;
 long response_code;
 
-void button(void) {printReport("KORD");}
+
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -40,6 +40,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::button()
+{
+    printReport("KORD");
+}
 
 
 void MainWindow::on_pushButton_clicked()

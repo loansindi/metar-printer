@@ -25,17 +25,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    wiringPiSetup();
-    pinMode(9, INPUT);
-    pullUpDnControl(9, PUD_UP);
-    wiringPiISR(9, INT_EDGE_FALLING, void button(void) {printReport("KORD");});
 
 }
 
-button()
-{
-    printReport("KORD");
-}
+
+wiringPiSetup();
+pinMode(9, INPUT);
+pullUpDnControl(9, PUD_UP);
+wiringPiISR(9, INT_EDGE_FALLING, void button(void) {MainWindow.printReport("KORD");});
+
 
 MainWindow::~MainWindow()
 {

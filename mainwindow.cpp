@@ -19,7 +19,7 @@
 using namespace std;
 long response_code;
 
-void button(void) {MainWindow.printReport("KORD");}
+void button(void) {printReport("KORD");}
 
 
 MainWindow::MainWindow(QWidget *parent) :

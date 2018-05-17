@@ -14,6 +14,8 @@
 #include <qpainter.h>
 #include <QtPrintSupport/qprinter.h>
 #include <QtPrintSupport>
+#include <wiringPi.h>
+
 using namespace std;
 long response_code;
 
@@ -23,7 +25,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    wiringPiSetup();
+    pinMode(0, INPUT);
+    pullUpDnControl(0, PUD_UP);
+    wiringPiISR(0, INT_EDGE_FALLING, button());
 
+}
+
+void MainWindow::button()
+{
+    printReport("KORD");
 }
 
 MainWindow::~MainWindow()

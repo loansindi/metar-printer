@@ -36,6 +36,7 @@ FORMS += \
         mainwindow.ui \
     buttonconfig.ui
 
-unix|win32: LIBS += -lcurl
+unix|win32: LIBS += -lcurl -lwiringPi
 QT += network
 QT += printsupport
+

@@ -16,7 +16,7 @@ public:
     ~MainWindow();
     //QString sendButtons(QString one, QString two, QString three, QString four, QString five, QString six);
     // void button();
-
+    void printReport(QString city);
 
 
 signals:

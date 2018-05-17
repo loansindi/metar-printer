@@ -43,7 +43,7 @@ MainWindow::~MainWindow()
 
 static void button()
 {
-    printReport("KORD");
+    MainWindow.printReport("KORD");
 }
 
 

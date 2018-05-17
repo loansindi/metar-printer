@@ -22,6 +22,8 @@ signals:
 
 
 private slots:
+    void button();
+
     void setButtons(QString one, QString two, QString three, QString four, QString five, QString six);
 
     void on_pushButton_clicked();

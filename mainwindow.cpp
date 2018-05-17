@@ -26,9 +26,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     wiringPiSetup();
-    pinMode(0, INPUT);
-    pullUpDnControl(0, PUD_UP);
-    wiringPiISR(0, INT_EDGE_FALLING, button());
+    pinMode(9, INPUT);
+    pullUpDnControl(9, PUD_UP);
+    wiringPiISR(9, INT_EDGE_FALLING, button());
 
 }
 

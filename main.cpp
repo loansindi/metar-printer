@@ -5,6 +5,7 @@
 #include "buttonconfig.h"
 
 
+void button(void) {w.printReport("KORD");}
 
 int main(int argc, char *argv[])
 {
@@ -17,7 +18,6 @@ int main(int argc, char *argv[])
     pinMode(9, INPUT);
     pullUpDnControl(9, PUD_UP);
     wiringPiISR(9, INT_EDGE_FALLING, &button);
-    void button(void) {w.printReport("KORD");}
 
 
     return a.exec();

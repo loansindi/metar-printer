@@ -19,6 +19,8 @@
 using namespace std;
 long response_code;
 
+void button(void) {MainWindow.printReport("KORD");}
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -27,7 +29,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     wiringPiISR(9, INT_EDGE_FALLING, &button);
 
-    void button(void) {MainWindow.printReport("KORD");}
 
 
 }

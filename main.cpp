@@ -4,7 +4,7 @@
 #include <wiringPi.h>
 #include "buttonconfig.h"
 
-void button(void) {MainWindow.printReport("KORD");}
+void button(void) {MainWindow.printReport("KORD")}
 
 
 int main(int argc, char *argv[])

@@ -22,7 +22,3 @@ int main(int argc, char *argv[])
 
 }
 
-void button()
-{
-    MainWindow.printReport("KORD");
-}

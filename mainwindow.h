@@ -31,7 +31,7 @@ private slots:
 
     void on_lineEdit_returnPressed();
 
-    void printReport(QString city);
+    //void printReport(QString city);
 
     void on_pushButton_1_clicked();
 

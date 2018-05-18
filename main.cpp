@@ -7,7 +7,10 @@
 
 
 MainWindow w;
-
+void button()
+{
+    w.printReport("KORD");
+}
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

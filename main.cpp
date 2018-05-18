@@ -13,6 +13,7 @@ static void button()
 }
 int main(int argc, char *argv[])
 {
+    w = new MainWindow();
     QApplication a(argc, argv);
     w->show();
 
@@ -23,8 +24,6 @@ int main(int argc, char *argv[])
     pullUpDnControl(9, PUD_UP);
 
     return a.exec();
-    w = new MainWindow(&a);
-
 
 }
 

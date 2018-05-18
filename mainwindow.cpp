@@ -40,10 +40,7 @@ MainWindow::~MainWindow()
 }
 
 
-void button()
-{
-    MainWindow.printReport("KORD");
-}
+
 
 
 void MainWindow::on_pushButton_clicked()

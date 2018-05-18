@@ -6,13 +6,14 @@
 
 
 
-MainWindow w;
+MainWindow* w;
 static void button()
 {
     w.printReport("KORD");
 }
 int main(int argc, char *argv[])
 {
+    w = new MainWindow(&a);
     QApplication a(argc, argv);
     w.show();
 

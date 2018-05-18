@@ -169,7 +169,7 @@ void MainWindow::printReport(QString city)
          painter.setFont(font);
          const QRect rectangle = QRect(0, 0, 250, 600);
          QRect boundingRect;
-         if(printer.printerState() != 0) {
+         if(printer.printerState() == 0) {
             painter.drawText(rectangle, Qt::TextWordWrap, weather, &boundingRect);
             painter.end();
          }

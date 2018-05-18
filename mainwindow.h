@@ -15,7 +15,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     //QString sendButtons(QString one, QString two, QString three, QString four, QString five, QString six);
-    // void button();
+    void button();
     void printReport(QString city);
 
 

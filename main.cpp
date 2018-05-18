@@ -9,7 +9,7 @@
 MainWindow* w;
 static void button()
 {
-    w.printReport("KORD");
+    w->printReport("KORD");
 }
 int main(int argc, char *argv[])
 {

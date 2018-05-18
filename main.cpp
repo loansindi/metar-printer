@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
     w = new MainWindow(&a);
     QApplication a(argc, argv);
-    w.show();
+    w->show();
 
 
     wiringPiISR(9, INT_EDGE_FALLING, button);

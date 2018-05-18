@@ -5,15 +5,16 @@
 #include "buttonconfig.h"
 
 
-MainWindow w;
 
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    MainWindow w;
     w.show();
 
 
+    wiringPiISR(9, INT_EDGE_FALLING, w.button);
     wiringPiSetup();
     pinMode(9, INPUT);
     pullUpDnControl(9, PUD_UP);

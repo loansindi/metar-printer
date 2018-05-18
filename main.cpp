@@ -19,8 +19,8 @@ int main(int argc, char *argv[])
     w->show();
 
 
-    wiringPiISR(9, INT_EDGE_FALLING, button);
     wiringPiSetup();
+    wiringPiISR(9, INT_EDGE_FALLING, button);
     pinMode(9, INPUT);
     pullUpDnControl(9, PUD_UP);
 

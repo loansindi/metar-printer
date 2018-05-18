@@ -169,8 +169,10 @@ void MainWindow::printReport(QString city)
          painter.setFont(font);
          const QRect rectangle = QRect(0, 0, 250, 600);
          QRect boundingRect;
-         painter.drawText(rectangle, Qt::TextWordWrap, weather, &boundingRect);
-         painter.end();
+         if(printer.printerState() != 0) {
+            painter.drawText(rectangle, Qt::TextWordWrap, weather, &boundingRect);
+            painter.end();
+         }
      }
      else {
          statusBar()->showMessage("Invalid Airport code or other error");

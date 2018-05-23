@@ -39,3 +39,5 @@ FORMS += \
 unix|win32: LIBS += -lcurl
 QT += network
 QT += printsupport
+
+include(../weather-lib/weather-lib.pri)

@@ -1,6 +1,5 @@
 *.autosave
 moc_*
-weather-qt
 ui_*
 *.user
 Makefile

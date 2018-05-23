@@ -18,6 +18,11 @@ SOURCES += \
         main.cpp
 
 
-unix|win32: LIBS += -lcurl -lwiringPi
+unix|win32: LIBS += -lcurl
+linux-arm-gnueabi {
+    LIBS += -lwiringPi
+}
 QT += network
 QT += printsupport
+
+include(../weather-lib/weather-lib.pri)
